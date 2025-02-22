@@ -14,7 +14,9 @@ Book.prototype.addBookToLibrary = function() {
 }
 
 Book.prototype.loopThroughBooks = function() {
-	return this.storedBooks;
+	for(let i=0; i < this.storedBooks.length; i++) {
+  	return this.storedBooks[i];
+	}
 }
 
 const bookOfTruths = new Book('Ass Hat McGee', 'Big Dick', 269, true)
