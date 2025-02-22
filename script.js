@@ -13,10 +13,16 @@ Book.prototype.addBookToLibrary = function() {
     return bookInfo;
 }
 
+Book.prototype.loopThroughBooks = function() {
+	return this.storedBooks;
+}
+
 const bookOfTruths = new Book('Ass Hat McGee', 'Big Dick', 269, true)
 const bookOfHoes = new Book('Slap A Hoe Twice', 'Charleston White', 500, false)
 
 console.log(bookOfTruths.addBookToLibrary());
 console.log(bookOfTruths.storedBooks);
+console.log(bookOfTruths.loopThroughBooks());
 console.log(bookOfHoes.addBookToLibrary());
 console.log(bookOfHoes.storedBooks);
+console.log(bookOfHoes.loopThroughBooks());
