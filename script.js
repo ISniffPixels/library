@@ -10,24 +10,38 @@ function Book(title, author, pages, bookRead) {
 }
 
 Book.prototype.addBookToLibrary = function() {
-    let bookInfo = `Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Have read book?: ${this.bookRead}`;
-    storedBooks.push(bookInfo);
-    return bookInfo;
+    storedBooks.push(this);
 }
 
-const bookOfTruths = new Book('Ass Hat McGee', 'Big Dick', 269, true)
-const bookOfHoes = new Book('Slap A Hoe Twice', 'Charleston White', 500, false)
-const theBouncer = new Book('The Bouncer', 'Hugh Jazz', 325, true)
+function bookDetails() {
+    const bookTitle = document.querySelector('#book_title').value;
+    const bookAuthor = document.querySelector('#book_author').value;
+    const numberOfPages = document.querySelector('#number_pages').value;
 
-bookOfTruths.addBookToLibrary();
-bookOfHoes.addBookToLibrary();
-theBouncer.addBookToLibrary();
+    function addBook(bookTitle) {
+        let book = new Book(bookTitle, bookAuthor, numberOfPages, true)
+        book.addBookToLibrary();
+    }
+    addBook(bookTitle);
+    displayLibrary();
+}
 
-storedBooks.forEach(book => {
+function displayLibrary() {
     const bookCase = document.querySelector('.book-case');
-    const books = document.createElement('p');
-    const text = document.createElement('text');
-    text.innerText = `${book};`;
-    books.appendChild(text);
-    bookCase.appendChild(books);
-});
+    bookCase.innerHTML = "";
+
+    storedBooks.forEach(book => {
+        const bookInfo = document.createElement('div');
+        
+        bookInfo.innerHTML = `
+        <strong>Title:</strong> ${book.title} <br>
+        <strong>Author:</strong> ${book.author} <br>
+        <strong>Pages:</strong> ${book.pages} <br>
+        <strong>Have read?:</strong> ${book.bookRead ? "Yes" : "No"}
+    `;
+
+        bookCase.appendChild(bookInfo);
+    });
+}
+
+document.querySelector("#addBookButton").addEventListener("click", bookDetails);
