@@ -14,21 +14,24 @@ Book.prototype.storeBookObject = function() {
 }
 
 function bookDetails() {
+    const form = document.querySelector('#book-form');
     const bookTitle = document.querySelector('#book_title').value;
     const bookAuthor = document.querySelector('#book_author').value;
     const numberOfPages = document.querySelector('#number_pages').value;
 
     function addBookToLibrary(bookTitle, bookAuthor, numberOfPages) {
+        if(bookTitle === "" || bookAuthor === "" || numberOfPages === "") return
         let book = new Book(bookTitle, bookAuthor, numberOfPages)
         book.storeBookObject();
     }
     addBookToLibrary(bookTitle, bookAuthor, numberOfPages);
     displayLibrary();
+
+    form.reset();
 }
 
 function displayLibrary() {
     const bookCase = document.querySelector('.book-case');
-    const deleteButton = document.createElement('button');
     const bookInfo = document.createElement('div');
 
     storedBooks.forEach((book, index) => {
@@ -39,8 +42,11 @@ function displayLibrary() {
         bookInfo.style.fontSize = "small";
         bookInfo.classList.add('book-entry');
         bookInfo.dataset.index = index;
-        deleteButton.setAttribute("style", "position: absolute; display: flex; justify-content: center; align-items: cener; position: absolute; top: 0; left: 0; background-color: orange; color: white; width: 26px; height: 26px; margin: 3px; border-radius: 100px; font-weight: bolder; z-index: 1");
+
+        const deleteButton = document.createElement('button');
         deleteButton.innerText = "x";
+
+        deleteButton.setAttribute("style", "position: absolute; display: flex; justify-content: center; align-items: cener; position: absolute; top: 0; left: 0; background-color: orange; color: white; width: 26px; height: 26px; margin: 3px; border-radius: 100px; font-weight: bolder; z-index: 1");
 
         // DYNAMICALLY CREATES HTML ELEMENTS
         bookInfo.innerHTML = `
@@ -56,9 +62,14 @@ function displayLibrary() {
         bookInfo.appendChild(deleteButton);
         bookCase.appendChild(bookInfo);
 
-        deleteButton.addEventListener("click", ()=> {
-            storedBooks`[data-index='${index}']`.remove();
-        })
+        // DELETES INDIVIDUAL BOOK DIVS BY ADDRESSING THEIR INDEX POSITION
+        deleteButton.addEventListener("click", (e) => {
+            const bookEntry = e.target.closest('.book-entry'); 
+            const index = bookEntry.dataset.index; 
+            storedBooks.splice(index, 1); 
+            bookEntry.remove();
+        });
+        
     });
 
     document.querySelectorAll('.yes-button').forEach(button => {

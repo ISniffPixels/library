@@ -12,13 +12,10 @@
         <div class="book-case"></div>
         <div class="add-book-form" style="opacity: 1;">
             <h2>Book Information</h2>
-            <form action="#" method="post" onsubmit="return false">
-                <label for="book_title">Title</label>
-                <input type="text" name="title" id="book_title">
-                <label for="book_author">Author</label>
-                <input type="text" name="author" id="book_author">
-                <label for="number_pages">Number of Pages</label>
-                <input type="number" name="pages" id="number_pages">
+            <form id="book-form" action="#" method="post" onsubmit="return false">
+                <input type="text" name="title" id="book_title" placeholder="Book Title">
+                <input type="text" name="author" id="book_author" placeholder="Author">
+                <input type="number" name="pages" id="number_pages" placeholder="# of pages">
             <button type="submit" id="addBookButton">Add to library</button>
             </form>
         </div>
