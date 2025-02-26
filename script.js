@@ -1,14 +1,18 @@
 "use strict";
 
 let storedBooks = JSON.parse(localStorage.getItem('storedBooks')) || [];
-storedBooks = storedBooks.map(book => new Book(book.title, book.author, book.pages));
 
-function Book(title, author, pages) {
+// Ensure storedBooks contains proper Book objects
+storedBooks = storedBooks.map(book => new Book(book.title, book.author, book.pages, book.read));
+
+function Book(title, author, pages, read = false) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 }
 
+// Store book and update localStorage
 Book.prototype.storeBookObject = function() {
     storedBooks.push(this);
     localStorage.setItem('storedBooks', JSON.stringify(storedBooks));
@@ -21,8 +25,8 @@ function bookDetails() {
     const numberOfPages = document.querySelector('#number_pages').value;
 
     function addBookToLibrary(bookTitle, bookAuthor, numberOfPages) {
-        if(bookTitle === "" || bookAuthor === "" || numberOfPages === "") return;
-        let book = new Book(bookTitle, bookAuthor, numberOfPages);
+        if (bookTitle === "" || bookAuthor === "" || numberOfPages === "") return;
+        let book = new Book(bookTitle, bookAuthor, numberOfPages, false); // 
         book.storeBookObject();
     }
     
@@ -61,30 +65,55 @@ function displayLibrary() {
         bookInfo.appendChild(deleteButton);
         bookCase.appendChild(bookInfo);
 
+        // APPLY "READ" OVERLAY IF BOOK IS MARKED AS READ
+        if (book.read) {
+            addReadOverlay(bookInfo);
+        }
+
         // DELETE BOOK
         deleteButton.addEventListener("click", (e) => {
             const bookEntry = e.target.closest('.book-entry'); 
             const index = bookEntry.dataset.index; 
             storedBooks.splice(index, 1); 
             localStorage.setItem('storedBooks', JSON.stringify(storedBooks));
-            displayLibrary(); 
+            displayLibrary();
         });
 
+        // "READ" BUTTON
         bookInfo.querySelector('.yes-button').addEventListener('click', () => {
-            if (!bookInfo.querySelector('.overlay')) {
-                const bookOverlay = document.createElement('div');
-                bookOverlay.classList.add('overlay');
-                bookOverlay.innerText = "READ";
-                bookOverlay.setAttribute("style", "font-size: 2.5rem; font-weight: bolder; color: orange; background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; box-shadow: -6px 6px 30px orange");
-                bookInfo.appendChild(bookOverlay);
+            if (!book.read) {
+                book.read = true;
+                localStorage.setItem('storedBooks', JSON.stringify(storedBooks));
+                addReadOverlay(bookInfo);
             }
         });
 
+        // "NOT READ" BUTTON
         bookInfo.querySelector('.no-button').addEventListener('click', () => {
-            const overlay = bookInfo.querySelector('.overlay');
-            if (overlay) overlay.remove();
+            if (book.read) {
+                book.read = false;
+                localStorage.setItem('storedBooks', JSON.stringify(storedBooks));
+                removeReadOverlay(bookInfo);
+            }
         });
     });
+}
+
+// FUNCTION TO ADD "READ" OVERLAY
+function addReadOverlay(bookInfo) {
+    if (!bookInfo.querySelector('.overlay')) {
+        const bookOverlay = document.createElement('div');
+        bookOverlay.classList.add('overlay');
+        bookOverlay.innerText = "READ";
+        bookOverlay.setAttribute("style", "font-size: 2.5rem; font-weight: bolder; color: orange; background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; box-shadow: -6px 6px 30px orange");
+        bookInfo.appendChild(bookOverlay);
+    }
+}
+
+// FUNCTION TO REMOVE "READ" OVERLAY
+function removeReadOverlay(bookInfo) {
+    const overlay = bookInfo.querySelector('.overlay');
+    if (overlay) overlay.remove();
 }
 
 document.addEventListener("DOMContentLoaded", displayLibrary);
