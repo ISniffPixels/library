@@ -25,7 +25,7 @@ function bookDetails() {
     const numberOfPages = document.querySelector('#number_pages').value;
 
     function addBookToLibrary(bookTitle, bookAuthor, numberOfPages) {
-        if (bookTitle === "" || bookAuthor === "" || numberOfPages === "") return;
+        if (bookTitle === "" || bookAuthor === "" || numberOfPages === "" || numberOfPages <= 0) return;
         let book = new Book(bookTitle, bookAuthor, numberOfPages, false); // 
         book.storeBookObject();
     }
