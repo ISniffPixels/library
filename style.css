@@ -1,5 +1,6 @@
 :root {
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 
 *,
@@ -9,9 +10,8 @@
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 100%;
     /* outline: 2px solid gray; */
-}
+} 
 
 .wrapper {
     position: relative;
@@ -20,32 +20,66 @@
     min-height: 100vh;
 }
 
+h2 {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.5rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .book-case {
+    background-image: url('./images/retro-pixel-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: 300px;
     grid-column: 1;
     grid-row: 1 / -1;
-    gap: 35px;
     padding: 25px;
+    gap: 30px;
 }
 
-.book-case > div {
-    background-color: antiquewhite;
+div.book-entry {
+    background-image: url('./images/pixel-art-book-cover.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     display: grid;
     place-content: center;
-    width: 250px;
-    height: 300px;
+
+    width: 270px;
+    height: 320px;
+
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+div.book-entry .overlay {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 10px;
 }
 
 .add-book-form {
-    background-color: antiquewhite;
+    background-image: url('./images/brick-wall-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     text-align: center;
     grid-column: 2;
     grid-row: 1 / -1;
 }
 
 .add-book-form input {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-size: small;
+    font-style: normal;
     border: none;
     padding: 12px 20px;    
     width: 70%;
@@ -54,30 +88,39 @@
 
 input[type='text']:focus,
 input[type='number']:focus {
-   background-color: rgba(255, 248, 200, 0.838);
+    background-color: rgba(255, 248, 200, 0.838);
 }
 
 .add-book-form button[type='submit'] {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-style: normal;
     margin-top: 50px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 100px;
+
+    background-color: burlywood;
 }
 
-fieldset {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    border: none;
-}
-
-fieldset legend {
+.book-cover-top,
+.book-cover-bottom {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.707);
+    color: burlywood;
     font-weight: bolder;
-    margin-bottom: 10px;
+    margin-left: 30px;
 }
 
-fieldset button {
+.book-cover-bottom {
+    padding: 30px;
+}
+
+.book-cover-bottom button {
+    font-weight: 600;
+    background-color: burlywood;
     border-radius: 100px;
-    padding: 0 20px 0;
+    padding: 2px;
+    margin: 10px 5px;
 }
 
 .add-book-form form {
@@ -95,7 +138,10 @@ fieldset button {
 
 .book-case h2,
 .add-book-form h2 {
-    font-size: x-large;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
     text-align: center;
     padding: 15px;
 }
@@ -120,5 +166,9 @@ fieldset button {
 
 .yes-button,
 .no-button {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-size: smaller;
+    font-style: normal;
     z-index: 1;
 }

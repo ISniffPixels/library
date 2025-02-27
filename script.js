@@ -43,23 +43,27 @@ function displayLibrary() {
     storedBooks.forEach((book, index) => {
         const bookInfo = document.createElement('div');
         bookInfo.style.position = "relative";
-        bookInfo.style.fontSize = "small";
         bookInfo.classList.add('book-entry');
         bookInfo.dataset.index = index;
 
         const deleteButton = document.createElement('button');
         deleteButton.innerText = "x";
-        deleteButton.setAttribute("style", "position: absolute; top: 0; left: 0; background-color: orange; color: white; width: 26px; height: 26px; margin: 3px; border-radius: 100px; font-weight: bolder; z-index: 1");
+        deleteButton.setAttribute("style", "position: absolute; top: 10px; left: 15px; background-color: burlywood; color: black; width: 26px; height: 26px; margin: 3px; border-radius: 100px; font-weight: bolder; z-index: 1");
 
         bookInfo.innerHTML = `
-            <strong>Title:</strong> ${book.title} <br>
-            <strong>Author:</strong> ${book.author} <br>
-            <strong>Pages:</strong> ${book.pages} <br>
-            <fieldset>
-                <legend>Have you read the book?</legend>
-                <button type="button" class="yes-button">Yes</button>
-                <button type="button" class="no-button">No</button>
-            </fieldset>
+            <div class="book-cover-top">
+             <p>&#128323; Title &#128324;</p> 
+             <p>${book.title}</p>
+             <p>&#x1F540; Author &#x1F540;</p> 
+             <p>${book.author}</p>
+             <p>&#x1F56E; Pages &#x1F56E;</p> 
+             <p>${book.pages}</p>
+            </div>
+            <div class="book-cover-bottom">
+            <p>Read Book?</p>
+            <button type="button" class="yes-button">YES</button>
+            <button type="button" class="no-button">NO</button>
+            </div>
         `;
 
         bookInfo.appendChild(deleteButton);
@@ -105,7 +109,7 @@ function addReadOverlay(bookInfo) {
         const bookOverlay = document.createElement('div');
         bookOverlay.classList.add('overlay');
         bookOverlay.innerText = "READ";
-        bookOverlay.setAttribute("style", "font-size: 2.5rem; font-weight: bolder; color: orange; background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; box-shadow: -6px 6px 30px orange");
+        bookOverlay.setAttribute("style", "font-size: 4rem; font-weight: bolder; color: orange; background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; box-shadow: -3px 3px 20px orange");
         bookInfo.appendChild(bookOverlay);
     }
 }
