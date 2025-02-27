@@ -48,7 +48,7 @@ function displayLibrary() {
 
         const deleteButton = document.createElement('button');
         deleteButton.innerText = "x";
-        deleteButton.setAttribute("style", "position: absolute; top: 10px; left: 15px; background-color: burlywood; color: black; width: 26px; height: 26px; margin: 3px; border-radius: 100px; font-weight: bolder; z-index: 1");
+        deleteButton.setAttribute("style", "position: absolute; top: 10px; left: 15px;  cursor: pointer; background-color: burlywood; color: black; width: 26px; height: 26px; margin: 3px;  border: 2px inset rgb(169, 110, 0); border-radius: 100px; font-weight: bolder; z-index: 1");
 
         bookInfo.innerHTML = `
             <div class="book-cover-top">

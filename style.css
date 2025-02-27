@@ -21,10 +21,14 @@
 }
 
 h2 {
+    color: black;
+    font-variant: small-caps;
     font-family: "Press Start 2P", system-ui;
-    font-size: 0.5rem;
+    font-size: 5rem;
     font-weight: 400;
     font-style: normal;
+    background-color: burlywood;
+    border: 5px inset rgb(169, 110, 0);
 }
 
 .book-case {
@@ -66,10 +70,10 @@ div.book-entry .overlay {
 }
 
 .add-book-form {
-    background-image: url('./images/brick-wall-1.jpg');
-    background-repeat: no-repeat;
+    background-image: url('./images/form-retro-pixel-bg.png');
+    background-repeat: repeat-y;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     text-align: center;
     grid-column: 2;
     grid-row: 1 / -1;
@@ -101,6 +105,8 @@ input[type='number']:focus {
     border-radius: 100px;
 
     background-color: burlywood;
+    border: 5px inset rgb(169, 110, 0);
+    cursor: pointer;
 }
 
 .book-cover-top,
@@ -119,7 +125,7 @@ input[type='number']:focus {
     font-weight: 600;
     background-color: burlywood;
     border-radius: 100px;
-    padding: 2px;
+    padding: 3px;
     margin: 10px 5px;
 }
 
@@ -141,7 +147,7 @@ input[type='number']:focus {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: large;
+    font-size: 2rem;
     text-align: center;
     padding: 15px;
 }
@@ -170,5 +176,7 @@ input[type='number']:focus {
     font-weight: 400;
     font-size: smaller;
     font-style: normal;
+    cursor: pointer;
+    border: 2px inset rgb(169, 110, 0);
     z-index: 1;
 }
