@@ -37,11 +37,16 @@ function bookDetails() {
 }
 
 function displayLibrary() {
+    const newBook_overlay = document.querySelector('.add-new-book-button');
+    const newBook_btn = document.querySelector('.newBook_overlay_btn');
+    const bookForm = document.querySelector('.add-book-form');
     const bookCase = document.querySelector('.book-case');
-    bookCase.innerHTML = "";
 
+    bookCase.innerHTML = "";
+    
     storedBooks.forEach((book, index) => {
         const bookInfo = document.createElement('div');
+
         bookInfo.style.position = "relative";
         bookInfo.classList.add('book-entry');
         bookInfo.dataset.index = index;
@@ -60,7 +65,7 @@ function displayLibrary() {
              <p>${book.pages}</p>
             </div>
             <div class="book-cover-bottom">
-            <p>Read Book?</p>
+            <p>Read?</p>
             <button type="button" class="yes-button">YES</button>
             <button type="button" class="no-button">NO</button>
             </div>
@@ -101,6 +106,14 @@ function displayLibrary() {
             }
         });
     });
+
+       // MAKES OVERLAY DISAPPEAR AND BOOK & FORM ELEMENTS APPEAR
+       newBook_btn.addEventListener('click', function() {
+        newBook_overlay.style.display = "none";
+        bookCase.style.opacity = 1;
+        bookForm.style.opacity = 1;
+        bookForm.style.transform = "translateX(0)";
+    })
 }
 
 // FUNCTION TO ADD "READ" OVERLAY
