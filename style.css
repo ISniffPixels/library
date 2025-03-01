@@ -101,11 +101,6 @@ div.book-entry .overlay {
     box-shadow: inset -3px 3px 10px rgba(165, 42, 42, 0.808);
 }
 
-/* input[type='text']:focus,
-input[type='number']:focus {
-    
-} */
-
 .add-book-form button[type='submit'] {
     font-family: "Press Start 2P", system-ui;
     font-weight: 600;
@@ -177,16 +172,6 @@ input[type='number']:focus {
 }
 
 .add-new-book-button div {
-    /* font-family: "Press Start 2P", system-ui;
-    font-weight: 600;
-    font-size: 1.6rem;
-    font-style: normal;
-
-    padding: 15px 20px;
-    border-radius: 100px;
-
-    background-color: burlywood;
-    border: 5px inset rgb(169, 110, 0); */
     background-image: url('./images/floating-books.png');
     background-repeat: no-repeat;
     background-position: center;
