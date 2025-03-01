@@ -52,7 +52,7 @@ function displayLibrary() {
         bookInfo.dataset.index = index;
 
         const deleteButton = document.createElement('button');
-        deleteButton.innerText = "x";
+        deleteButton.innerText = "✖";
         deleteButton.setAttribute("style", "position: absolute; top: 10px; left: 15px;  cursor: pointer; background-color: burlywood; color: black; width: 26px; height: 26px; margin: 3px;  border: 2px inset rgb(169, 110, 0); border-radius: 100px; font-weight: bolder; z-index: 1");
 
         bookInfo.innerHTML = `
@@ -66,8 +66,8 @@ function displayLibrary() {
             </div>
             <div class="book-cover-bottom">
             <p>Read?</p>
-            <button type="button" class="yes-button">YES</button>
-            <button type="button" class="no-button">NO</button>
+            <button type="button" class="yes-button">✔️</button>
+            <button type="button" class="no-button">✖️</button>
             </div>
         `;
 

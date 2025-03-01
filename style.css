@@ -142,14 +142,6 @@ input[type='number']:focus {
     margin-top: -20px;
 }
 
-.book-cover-bottom button {
-    font-weight: 600;
-    background-color: burlywood;
-    border-radius: 100px;
-    padding: 3px;
-    margin: 10px 5px;
-}
-
 .add-book-form form {
     display: flex;
     flex-direction: column;
@@ -220,9 +212,13 @@ input[type='number']:focus {
 .yes-button,
 .no-button {
     font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-size: smaller;
+    font-size: 1rem;
     font-style: normal;
+    font-weight: 600;
+    background-color: burlywood;
+    border-radius: 100%;
+    padding: 6px;
+    margin: 10px 5px;
     cursor: pointer;
     border: 2px inset rgb(169, 110, 0);
     z-index: 1;
