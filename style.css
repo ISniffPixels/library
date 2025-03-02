@@ -87,6 +87,17 @@ div.book-entry .overlay {
     transition: all 1s ease-in;
 }
 
+.add-book-form p {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.778);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .add-book-form input {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
