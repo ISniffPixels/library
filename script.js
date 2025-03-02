@@ -121,7 +121,7 @@ function addReadOverlay(bookInfo) {
     if (!bookInfo.querySelector('.overlay')) {
         const bookOverlay = document.createElement('div');
         bookOverlay.classList.add('overlay');
-        bookOverlay.innerText = "READ";
+        bookOverlay.innerHTML = '<img class="bookOverlay_img" src="./images/read-stamp.png">'
         bookOverlay.setAttribute("style", "font-size: 4rem; font-weight: bolder; color: orange; background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; box-shadow: -3px -3px 10px orange");
         bookInfo.appendChild(bookOverlay);
     }

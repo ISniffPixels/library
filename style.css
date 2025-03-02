@@ -137,6 +137,11 @@ div.book-entry .overlay {
     margin-top: -20px;
 }
 
+.bookOverlay_img {
+    width: 200px;
+    height: 200px;
+}
+
 .add-book-form form {
     display: flex;
     flex-direction: column;
