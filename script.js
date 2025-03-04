@@ -2,7 +2,7 @@
 
 let storedBooks = JSON.parse(localStorage.getItem('storedBooks')) || [];
 
-// Ensure storedBooks contains proper Book objects
+// WILL VERIFY IF BOOK OBJECTS ARE INSIDE ARRAY
 storedBooks = storedBooks.map(book => new Book(book.title, book.author, book.pages, book.read));
 
 function Book(title, author, pages, read = false) {
@@ -12,7 +12,7 @@ function Book(title, author, pages, read = false) {
     this.read = read;
 }
 
-// Store book and update localStorage
+// STORES BOOK OBJECTS AND UPDATES LOCAL STORAGE API
 Book.prototype.storeBookObject = function() {
     storedBooks.push(this);
     localStorage.setItem('storedBooks', JSON.stringify(storedBooks));
@@ -133,5 +133,8 @@ function removeReadOverlay(bookInfo) {
     if (overlay) overlay.remove();
 }
 
+// LOADS AND PARSES THROUGH HTML CONTENT BEFORE JS INTERACTS WITH DOM ELEMENTS
 document.addEventListener("DOMContentLoaded", displayLibrary);
+
+// INITIATES BOOK OBJECTS TO BE ADDED TO BOOKCASE
 document.querySelector("#addBookButton").addEventListener("click", bookDetails);
