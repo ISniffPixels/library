@@ -81,6 +81,7 @@ class Library {
     // CREATES BOOK OBJECTS AND ASSIGNS ATTRIBUTES TO THEM
     this.storedBooks.forEach((book, index) => {
       const bookInfo = document.createElement('div');
+      
       bookInfo.style.position = "relative";
       bookInfo.classList.add('book-entry');
       bookInfo.dataset.index = index;
