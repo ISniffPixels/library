@@ -26,10 +26,7 @@ class Library {
     this.newBookBtn = document.querySelector('.newBook_overlay_btn');
     this.form = document.querySelector('#book-form');
 
-    this.addNewBookBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        this.addBookFromForm();
-      });
+    this.newBookEntry();
   }
   
   // LOADS BOOK OBJECTS FROM LOCALSTORAGE AND LOOPS THROUGH THEM WITH THE MAP METHOD TO ADD THEM TO CLASS INSTANCES
@@ -67,6 +64,13 @@ class Library {
     const book = new Book(bookTitle, bookAuthor, numberOfPages, false);
     this.addBook(book);
     this.form.reset();
+  }
+
+  newBookEntry() {
+    this.addNewBookBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.addBookFromForm();
+      });
   }
   
   // RENDERS THE LIBRARY UI
@@ -164,6 +168,6 @@ class Library {
 
 // DOME CONTENT WILL COMPLETELY LOAD BEFORE LIBRARY IS RENDERED
 document.addEventListener("DOMContentLoaded", () => {
-  const newBookEntry = new Library();
-  newBookEntry.displayLibrary();
+  const createBook = new Library();
+  createBook.displayLibrary();
 });
