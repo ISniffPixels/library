@@ -176,7 +176,7 @@ div.book-entry .overlay {
     padding: 15px;
 }
 
-.add-new-book-button {
+.add-new-book-overlay {
     display: block;
     background-color: rgba(0, 0, 0, 0.72);
     position: absolute;
@@ -187,7 +187,7 @@ div.book-entry .overlay {
     z-index: 1;
 }
 
-.add-new-book-button div {
+.add-new-book-overlay div {
     background-image: url('./images/floating-books.png');
     background-repeat: no-repeat;
     background-position: center;
