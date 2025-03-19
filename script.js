@@ -140,7 +140,7 @@ class Library {
       });
     });
     
-    // INITIALIZES APPLICATION
+    // INITIALIZES APPLICATION WHEN HOVERING BOOK IMAGE IS CLICKED
     this.newBookBtn.addEventListener('click', () => {
       this.newBookOverlay.style.display = "none";
       this.bookCase.style.opacity = 1;
